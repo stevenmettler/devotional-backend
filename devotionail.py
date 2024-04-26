@@ -1,7 +1,8 @@
+import os
 from groq import Groq
 
 client = Groq(
-    api_key=userdata.get('GROQ_API_KEY'),
+    api_key=os.getenv('GROQ_API_KEY'),
 )
 
 stream = client.chat.completions.create(
