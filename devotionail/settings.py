@@ -15,7 +15,7 @@ import os
 
 APP_NAME = os.environ.get("FLY_APP_NAME")
 ALLOWED_HOSTS = [f"{APP_NAME}.fly.dev",
-                 "devotional-backend-icy-thunder-9023.fly.dev"]  # ← Updated!
+                 "devotional-backend-icy-thunder-9023.fly.dev", "66.241.124.136"]  # ← Updated!
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,8 +30,6 @@ SECRET_KEY = 'django-insecure-r&t*ts!mk-v$yk=suu(d5a0lnm*i*3q&v!mu&3sdj+gjdnzldg
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
