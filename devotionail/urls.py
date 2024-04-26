@@ -14,15 +14,29 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from groq import Groq
+from django.conf import settings
 # devotionail/urls.py
 from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path
 
+client = Groq(
+    api_key=settings.GROQ_API_KEY
+)
 
-# ↓ New basic view returning "Hello, Fly!" ↓
+
 def hello(request):
-    return HttpResponse("Hello, Fly!")
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": "Explain the importance of low latency LLMs, explain it in the voice of Jon Snow",
+            }
+        ],
+        model="llama3-70b-8192",
+    )
+    return HttpResponse(chat_completion.choices[0].message.content)
 
 
 urlpatterns = [
