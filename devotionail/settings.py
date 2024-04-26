@@ -14,7 +14,8 @@ from pathlib import Path
 import os
 
 APP_NAME = os.environ.get("FLY_APP_NAME")
-ALLOWED_HOSTS = [f"{APP_NAME}-icy-thunder-9023.fly.dev"]  # ← Updated!
+ALLOWED_HOSTS = [f"{APP_NAME}.fly.dev",
+                 "devotional-backend-icy-thunder-9023.fly.dev"]  # ← Updated!
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
