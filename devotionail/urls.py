@@ -20,12 +20,14 @@ from devotionail import settings
 from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path
+from django.views.decorators.csrf import csrf_exempt
 
 client = Groq(
     api_key=settings.GROQ_API_KEY
 )
 
 
+@csrf_exempt
 def topic(request, topic):
     chat_completion = client.chat.completions.create(
         #
@@ -78,6 +80,7 @@ def topic(request, topic):
     return HttpResponse(chat_completion.choices[0].message.content)
 
 
+@csrf_exempt
 def random(request):
     chat_completion = client.chat.completions.create(
         #
