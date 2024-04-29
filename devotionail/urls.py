@@ -97,7 +97,7 @@ def random(request):
             # Set a user message for the assistant to respond to.
             {
                 "role": "user",
-                "content": f"Give me a study with valid json.",
+                "content": f"Give me a study with valid json. Please do not output anything beside a valid json.",
             }
         ],
 
